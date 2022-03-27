@@ -9,7 +9,7 @@ class SoftDeleteManager(manager.Manager):
 
 class SoftDeleteMixin():
     deleted_at = fields.DatetimeField(default=None, null=True)
-    
+
     class Meta:
         manager = SoftDeleteManager()
 
@@ -17,13 +17,14 @@ class SoftDeleteMixin():
         self.deleted_at = datetime.now()
         await self.save()
 
+
 class TimeStampMixin():
     created_at = fields.DatetimeField(auto_now_add=True)
     updated_at = fields.DatetimeField(auto_now=True)
-    
+
 
 class BaseModel(models.Model):
     id = fields.IntField(pk=True)
-    
+
     # class Meta:
     #     abstract = True

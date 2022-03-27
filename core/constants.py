@@ -1,10 +1,10 @@
-from enum import Enum
+import enum
 from core.settings import AppSettings
 
 
 settings = AppSettings()
 
-class Language(str, Enum):
+class Language(str, enum.Enum):
     KOREA = "KO"
     ENGLISH = "EN"
     JAPAN = "JA"

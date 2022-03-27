@@ -1,6 +1,6 @@
 from typing import List, Optional
-from fastapi import APIRouter, Response
-from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
+
+from fastapi import APIRouter
 from models import (Company, Company_Pydantic, CompanyName, CompanyName_Pydantic, Tag)
 
 
@@ -48,4 +48,3 @@ async def remove_tags(id: int, tag_ids: List[int]):
 
     queryset = Company.get(id=id).prefetch_related('names', 'tags__names')
     return await Company_Pydantic.from_queryset_single(queryset)
-    
